@@ -156,9 +156,7 @@ with tab_results:
         try:
             assumptions = Assumptions(**_collect_assumptions())
             data_df = st.session_state.get("historical_df")
-            pipeline_results = planner.run_pipeline(
-                assumptions, historical_df=data_df
-            )
+            pipeline_results = planner.run_pipeline(assumptions, historical_df=data_df)
             st.session_state["results"] = pipeline_results
             st.success("Pipeline completed successfully.")
         except ValidationError as error:
